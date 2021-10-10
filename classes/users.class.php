@@ -17,7 +17,7 @@ class Users extends Dbh {
     }
 
     protected function getAdvertisersWithUsers(){
-        $sql = "SELECT * FROM users JOIN advertisements ON users.id = advertisements.id;";
+        $sql = "SELECT * FROM users RIGHT JOIN advertisements ON users.id = advertisements.id;";
         $result = mysqli_query($this->connectToDatabase(), $sql);
         return $result;
     }
@@ -28,12 +28,12 @@ class Users extends Dbh {
     }
 
     protected function createUsersTable(){
-        $sql = "CREATE TABLE users ( id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50) );";
+        $sql = "CREATE TABLE users ( id INT PRIMARY KEY AUTO_INCREMENT , name VARCHAR(50) );";
         $result = mysqli_query($this->connectToDatabase(), $sql);
         return $result;
     }
     protected function createAdvertisementsTable(){
-        $sql = "CREATE TABLE advertisements ( id INT PRIMARY KEY AUTO_INCREMENT, userid INT, title VARCHAR(50), FOREIGN KEY (userid) REFERENCES users(id) );";
+        $sql = "CREATE TABLE advertisements ( id INT PRIMARY KEY AUTO_INCREMENT, userid INT, title VARCHAR(50), FOREIGN KEY (userid) REFERENCES users(id) ON DELETE SET NULL);";
         $result = mysqli_query($this->connectToDatabase(), $sql);
         return $result;
     }

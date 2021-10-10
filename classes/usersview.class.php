@@ -26,14 +26,12 @@ class UsersView extends Users {
         $resultCheck = mysqli_num_rows($result);
 
         if ($resultCheck > 0){
-            while ($row = mysqli_fetch_assoc($result)){
-                echo "<table>";
-                echo "<tr><td><b>Users:</b></td></tr>";
-                while ($row = mysqli_fetch_assoc($result)){
-                    echo "<tr><td>" . $row["name"] . "</td></tr>";
-                }
-                echo "</table>";
+            echo "<table>";
+            echo "<tr><td><b>Users:</b></td></tr>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr><td>" . $row["name"] . "</td></tr>";
             }
+            echo "</table>";
         }
     }
 
