@@ -26,7 +26,12 @@ class UsersView extends Users {
 
         if ($resultCheck > 0){
             while ($row = mysqli_fetch_assoc($result)){
-                echo $row["name"] . "<br>";
+                echo "<table>";
+                echo "<tr><td><b>Users:</b></td></tr>";
+                while ($row = mysqli_fetch_assoc($result)){
+                    echo "<tr><td>" . $row["name"] . "</td></tr>";
+                }
+                echo "</table>";
             }
         }
     }
@@ -47,9 +52,12 @@ class UsersView extends Users {
         $resultCheck = mysqli_num_rows($result);
 
         if ($resultCheck > 0){
+            echo "<table>";
+            echo "<tr><td><b>Title</b></td><td><b>Related user</b></td></tr>";
             while ($row = mysqli_fetch_assoc($result)){
-                echo "Advertisements: " . $row["title"] . ", relataed user: " . $row["name"] . "<br>";
+                echo "<tr><td>" . $row["title"] . "</td><td>" . $row["name"] . "</td></tr>";
             }
+            echo "</table>";
         }
     }
 
