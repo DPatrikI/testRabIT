@@ -3,7 +3,8 @@
 class UsersController extends Users {
 
     public function createDatabase(){
-        $sql = "CREATE DATABASE rabitdatabase;";
+        $databaseName = $this->getDatabaseName();
+        $sql = "CREATE DATABASE $databaseName;";
 
         $result = $this->createDatabaseAt($sql);
 

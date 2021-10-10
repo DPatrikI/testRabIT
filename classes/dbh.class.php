@@ -5,7 +5,10 @@ class Dbh {
     private $user = "root";
     private $password = "";
     private $databaseName = "rabitdatabase";
-    //private $databaseName = "rabitdatabase";
+
+    protected function getDatabaseName(){
+        return $this->databaseName;
+    }
 
     protected function connectToSQL(){
         $conn = new mysqli($this->host, $this->user, $this->password);

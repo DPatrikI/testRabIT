@@ -2,6 +2,8 @@
 
 class Users extends Dbh {
 
+
+
     protected function getUsers(){
         $sql = "SELECT * FROM users;";
         $result = mysqli_query($this->connectToDatabase(), $sql);
