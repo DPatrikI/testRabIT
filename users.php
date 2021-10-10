@@ -13,23 +13,38 @@ include_once "includes/class_autoloader.inc.php";
 <div class="container">
     <div class="center">
         <p>
+
+            <table>
+                <tr>
+                    <td><a href = "index.php">Home</a></td><td><a href = "users.php"><b>Users</b></a></td><td><a href = "advertisements.php">Advertisements</a></td>
+                </tr>
+            </table>
+
             <?php
             $users = new UsersView();
             $usersController = new UsersController();
 
+            //first checking if connecting to SQL is possible
             if ($users->isConnectedToSQL()){
+
+                //if connected, checking if database exists
                 if ($users->isDatabaseFound()){
+                    //if database exists, shows the users
                     $users->showUsers();
                 }
                 else {
-                    echo "Database not found<br>";
+                    //if database doesn't exist, tries to create it and populate it
+                    echo "<p>Database not found<br></p>";
                     $usersController->setUpDatabaseAndPopulateItForDemo();
+
+                    //if creating the database was successful, it shows the users
                     if ($users->isDatabaseFound()){
-                        echo "Database created<br>";
+                        echo "<p>Database created<br></p>";
                         $users->showUsers();
                     }
+                    //if creating the database wasn't successful, prints it out
                     else {
-                        echo "Database couldn't be created<br>";
+                        echo "<p>Database couldn't be created<br></p>";
                     }
                 }
             }

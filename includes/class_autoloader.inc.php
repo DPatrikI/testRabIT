@@ -1,5 +1,5 @@
 <?php
-
+//autoloads all the classes that fit the $path and $extension
 spl_autoload_register('classAutoloader');
 
 function classAutoloader ($className){

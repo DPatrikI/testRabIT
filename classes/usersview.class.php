@@ -20,6 +20,7 @@ class UsersView extends Users {
         return false;
     }
 
+    //shows the users in a table
     public function showUsers(){
         $result = $this->getUsers();
         $resultCheck = mysqli_num_rows($result);
@@ -47,6 +48,7 @@ class UsersView extends Users {
         }
     }
 
+    //shows the advertisements with the corresponding users in a table
     public function showAdvertisementsWithUsers(){
         $result = $this->getAdvertisersWithUsers();
         $resultCheck = mysqli_num_rows($result);

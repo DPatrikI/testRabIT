@@ -1,4 +1,5 @@
 <?php
+//including this so itt will load all my classes
 include_once "includes/class_autoloader.inc.php";
 ?>
 
@@ -13,9 +14,11 @@ include_once "includes/class_autoloader.inc.php";
 <div class= "container">
     <div class="center">
         <p>
-            <a href = "users.php">Users</a>
-            <br><br>
-            <a href = "advertisements.php">Advertisements</a>
+            <table>
+                <tr>
+                    <td><a href = "index.php"><b>Home</b></a></td><td><a href = "users.php">Users</a></td><td><a href = "advertisements.php">Advertisements</a></td>
+                </tr>
+            </table>
         </p>
     </div>
 </div>
