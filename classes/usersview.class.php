@@ -35,6 +35,7 @@ class UsersView extends Users {
         }
     }
 
+    //would show only the advertisements, not used
     public function showAdvertisements(){
         $result = $this->getAdvertisers();
         $resultCheck = mysqli_num_rows($result);
